@@ -41,6 +41,9 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
+.section {
+  padding: 60px 40px;
+}
 /* ================= HEADER ================= */
 .container {
   max-width: 1200px;
@@ -63,12 +66,13 @@ header {
   font-weight: bold;
   color: var(--primary);
 }
-/* Nav links (desktop) */
+/* ================= NAVBAR ================= */
+
+/* Desktop nav */
 nav {
   display: flex;
    gap: 25px;
-   transition: max-height 0.4s ease, padding 0.3s ease;
-    padding: 0 0; /* collapse padding when closed */
+
 }
 
 nav a {
@@ -79,6 +83,7 @@ nav a {
   position: relative;
 }
 
+/* underline hover */
 nav a::after {
   content: "";
   position: absolute;
@@ -93,33 +98,55 @@ nav a::after {
 nav a:hover::after {
   width: 100%;
 }
-/* Right side */
+
+/* Right side (theme + hamburger) */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
+/* ================= THEME BUTTON ================= */
+
+ #themeBtn {
+ background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+}
 
  /* ================= HAMBURGER ================= */
 .menu-btn {
-  width: 30px;
-  height: 22px;
-  display: none;
+  width: 28px;
+  height: 20px;
+  display: none;  /* desktop hidden */
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   cursor: pointer;
 }
 .menu-btn span {
   height: 3px;
   width: 100%;
   background: var(--white);
-  border-radius: 5px;
+  border-radius: 4px;
   transition: 0.3s;
 }
+.no-scroll {
+  overflow: hidden;
+}
+
 /* Hamburger Animation to X */
 .menu-btn.open span:nth-child(1) {
-  transform: rotate(45deg) translateY(9px);
+  transform: rotate(45deg) translateY(8px);
 }
 .menu-btn.open span:nth-child(2) {
   opacity: 0;
@@ -127,9 +154,7 @@ nav a:hover::after {
 .menu-btn.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
- .section {
-  padding: 60px 40px;
-}
+ 
 /* Hero Section */
 .hero {
   display: flex;
@@ -250,14 +275,6 @@ button:hover {
   color: black;
   transform: translateY(-5px);
 }
-/* DARK SECTION */
- #themeBtn {
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-   /* margin-left: 15px; */
-}
-
 
 
 /* CONTACT */
@@ -299,31 +316,42 @@ footer {
    /* hidden by default */
     max-height: 0;
     overflow: hidden;
+    opacity: 0;
 
-    transition: max-height 0.4s ease;
+   transition: max-height 0.4s ease, opacity 0.3s ease;
     z-index: 2000; /*show above here */
 
   }
   nav.active {
      max-height: 300px; /* opens menu */
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      opacity: 1;
   }
 
   nav a {
     padding: 12px 0;
     font-size: 18px;
   }
+   #themeBtn {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+     /* Disable scroll when menu open */
+     .no-scroll {
+        overflow: hidden;
+       }
    .section {
     padding: 30px 15px;
   }
+
   
 /* ////hero section */
-  h1 { font-size: 28px; }
-  p { font-size: 15px; }
-
+ 
   .hero {
     flex-direction: column;
      text-align: center;
+     padding: 30px 20px;
   }
    .hero-img img {
     width: 100%;
@@ -332,6 +360,9 @@ footer {
   .hero-text h1 {
     font-size: 28px;
   }
+   h1 { font-size: 28px; }
+  p { font-size: 15px; }
+
   /* //contact section */
   .contact-form {
     width: 90%;

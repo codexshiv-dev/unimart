@@ -4,6 +4,7 @@ function toggleMenu() {
 
   nav.classList.toggle("active");
   menuBtn.classList.toggle("open");
+  document.body.classList.toggle("no-scroll");
 }
 /* Close menu when clicking a link */
 const navMenu = document.getElementById("navMenu");
