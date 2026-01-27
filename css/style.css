@@ -38,6 +38,8 @@ body {
   background: var(--bg-main);
   color: var(--white);
    transition: background 0.3s, color 0.3s;
+  padding: 0;
+  overflow-x: hidden;
 }
 /* ================= HEADER ================= */
 .container {
@@ -125,8 +127,9 @@ nav a:hover::after {
 .menu-btn.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
-
-
+ .section {
+  padding: 60px 40px;
+}
 /* Hero Section */
 .hero {
   display: flex;
@@ -310,15 +313,32 @@ footer {
     padding: 12px 0;
     font-size: 18px;
   }
+   .section {
+    padding: 30px 15px;
+  }
+  
 /* ////hero section */
+  h1 { font-size: 28px; }
+  p { font-size: 15px; }
+
   .hero {
     flex-direction: column;
      text-align: center;
   }
-  
-  .hero-text h1 {
-    font-size: 32px;
+   .hero-img img {
+    width: 100%;
   }
   
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  /* //contact section */
+  .contact-form {
+    width: 90%;
+  }
+
+  input, textarea {
+    font-size: 16px;
+  }
   
 }
