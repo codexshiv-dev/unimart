@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="images/png" sizes="32x32" href="images/favicon.svg">
 </head>
 <body>
 
 <!-- NAVBAR -->
 <header>
-  <div class="logo">Unimart</div>
+  <div class="logo">
+    <img src="images/icon/logo.svg" alt="Unimart Logo"></div>
   <nav id="navMenu">
     <a href="#">Home</a>
     <a href="#new">New Arrivals</a>
@@ -19,7 +21,7 @@
     <a href="#contact">Contact</a>
   </nav>
   <div class="header-right">
-    <button id="themeBtn">🌙</button>
+    <button class="primary-btn" id="themeBtn">🌙</button>
     <div class="menu-btn" onclick="toggleMenu()">
       <span></span>
       <span></span>
@@ -32,43 +34,66 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
-    <h1>Smart Gadgets for Smart Life</h1>
-    <p>Drones, Smart Toys, Watches, Projectors & Cool Tech</p>
-    <button>View New Arrivals</button>
+  <div class="hero-content">
+    <h1>
+      Smart <span>Gadgets</span><br>
+      For Smart Kids
+    </h1>
+
+    <p>
+      Discover night lights, toys, smart watches, and creative tech for children & babies.
+    </p>
+
+    <!-- Search Bar -->
+    <div class="hero-search">
+      <input type="text" placeholder="Search products...">
+      <button>🔍</button>
+    </div>
+
+    <!-- Buttons -->
+    <div class="hero-buttons">
+      <button class="primary-btn">Shop Now</button>
+      <button class="outline-btn">Explore</button>
+    </div>
   </div>
+
   <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="gadgets">
+    <img src="images/icon/hero-img.png" alt="Hero Gadgets">
   </div>
 </section>
+
+
 
 <!-- NEW ARRIVALS -->
 <section id="new" class="section">
   <h2>New Arrivals</h2>
   <div class="products">
     <div class="card">
-      <img src="images/img1.jpeg">
+       <img src="images/img1.jpeg" alt="Panda Night Light">
       <h3>Rechargeable Silicone Panda Night Light</h3>
       <p>Rs.699</p>
-      <button>Order Now</button>
+       <button class="primary-btn">Order Now</button>
     </div>
-    <div class="card">
-      <img src="images/img2.jpeg">
-      <h3>Pear Shape Silicone Night Light</h3>
-      <p>Rs.799</p>
-      <button>Order Now</button>
-    </div>
+   <div class="card">
+    <img src="images/img1.jpeg" alt="Panda Night Light">
+    <div class="card-content">
+    <h3>Rechargeable Silicone Panda Night Light</h3>
+    <p class="price">Rs. 699</p>
+    <button class="primary-btn">Order Now</button>
+  </div>
+</div>
+
     <div class="card">
       <img src="images/img3.jpeg">
       <h3>Creative Silicone Night Light</h3>
       <p>Rs.799</p>
-      <button>Order Now</button>
+      <button class="primary-btn">Order Now</button>
     </div>
     <div class="card">
       <img src="images/img4.jpeg">
       <h3>Mini Projector</h3>
-      <p>Rs.2000</p>
-      <button>Order Now</button>
+      <p>Rs.799</p>
+      <button class="primary-btn">Order Now</button>
     </div>
   </div>
 </section>
@@ -105,7 +130,7 @@
     <input type="text" placeholder="Phone Number">
     <input type="text" placeholder="Product Name">
     <textarea placeholder="Message"></textarea>
-    <button type="submit">Send Order</button>
+    <button type="submit" class="primary-btn">Send Order</button>
   </form>
 </section>
 
