@@ -62,3 +62,53 @@ themeBtn.addEventListener("click", () => {
   }
 });
 
+
+//Testimonial section
+const track = document.getElementById("testimonialTrack");
+const dotsContainer = document.getElementById("testimonialDots");
+const cards = document.querySelectorAll(".testimonial-card");
+
+let index = 0;
+let interval;
+
+// Create dots dynamically
+cards.forEach((_, i) => {
+  const dot = document.createElement("span");
+  if (i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
+  dot.addEventListener("click", () => moveToSlide(i));
+});
+
+const dots = document.querySelectorAll(".testimonial-dots span");
+
+function moveToSlide(i) {
+  index = i;
+  track.style.transform = `translateX(-${index * 100}%)`;
+  updateDots();
+}
+
+function updateDots() {
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+// Auto slide
+function startAutoSlide() {
+  interval = setInterval(() => {
+    index = (index + 1) % cards.length;
+    moveToSlide(index);
+  }, 4000);
+}
+
+// Pause on hover
+document.querySelector(".testimonial-slider").addEventListener("mouseenter", () => {
+  clearInterval(interval);
+});
+
+document.querySelector(".testimonial-slider").addEventListener("mouseleave", () => {
+  startAutoSlide();
+});
+
+startAutoSlide();
+
+//End testimonial section
