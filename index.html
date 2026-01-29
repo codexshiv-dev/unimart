@@ -46,10 +46,10 @@
     </p>
 
     <!-- Search Bar -->
-    <div class="hero-search">
-      <input type="text" placeholder="Search products...">
-      <button>🔍</button>
-    </div>
+   <div class="hero-search">
+  <input type="text" id="heroSearch" placeholder="Search smart toys, night lights, gadgets...">
+  <button onclick="scrollToProducts()">🔍</button>
+   </div>
 
     <!-- Buttons -->
     <div class="hero-buttons">
@@ -80,18 +80,36 @@
   </div>
 </section>
 
+<!-- PRODUCT FILTER BAR -->
+<section class="section">
+  <div class="product-filter">
+    <input type="text" id="searchInput" placeholder="Search products...">
+
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <option value="lights">Lights</option>
+      <option value="toys">Smart Toys</option>
+      <option value="watches">Smart Watches</option>
+      <option value="decor">Home Decor</option>
+    </select>
+  </div>
+
+  <p id="noResult" style="display:none; text-align:center; margin-top:20px;">
+    ❌ No products found
+  </p>
+</section>
 
 <!-- NEW ARRIVALS -->
 <section id="new" class="section">
   <h2>New Arrivals</h2>
   <div class="products">
-    <div class="card">
+    <div class="card" data-category="decor">
        <img src="images/img1.jpeg" alt="Panda Night Light">
       <h3>Rechargeable Silicone Panda Night Light</h3>
       <p>Rs.699</p>
        <button class="primary-btn">Order Now</button>
     </div>
-   <div class="card">
+   <div class="card" data-category="decor">
     <img src="images/img1.jpeg" alt="Panda Night Light">
     <div class="card-content">
     <h3>Rechargeable Silicone Panda Night Light</h3>
@@ -100,13 +118,13 @@
   </div>
 </div>
 
-    <div class="card">
+    <div class="card" data-category="lights" >
       <img src="images/img3.jpeg">
       <h3>Creative Silicone Night Light</h3>
       <p>Rs.799</p>
       <button class="primary-btn">Order Now</button>
     </div>
-    <div class="card">
+    <div class="card" data-category="decor">
       <img src="images/img4.jpeg">
       <h3>Mini Projector</h3>
       <p>Rs.799</p>
@@ -122,7 +140,7 @@
     <div class="cat">🚁 Drones</div>
     <div class="cat">🧸 Smart Toys</div>
     <div class="cat">⌚ Smart Watches</div>
-    <div class="cat">💡 Lights</div>
+    <div class="cat" onclick="setCategory('lights')">💡 Lights</div>
     <div class="cat">🎮 Games</div>
     <div class="cat">🖨 Electronics</div>
   </div>
@@ -190,7 +208,10 @@
   <p>© 2026 Unimart | Smart Gadgets Store</p>
 </footer>
 
+
+
 <script src="js/script.js"></script>
+
 </body>
 </html>
  

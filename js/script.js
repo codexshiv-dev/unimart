@@ -112,3 +112,45 @@ document.querySelector(".testimonial-slider").addEventListener("mouseleave", () 
 startAutoSlide();
 
 //End testimonial section
+//filter bar
+const heroSearch = document.getElementById("heroSearch");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const products = document.querySelectorAll(".products .card");
+const noResult = document.getElementById("noResult");
+
+// Scroll to products from hero search
+function scrollToProducts() {
+  document.getElementById("new").scrollIntoView({ behavior: "smooth" });
+  searchInput.value = heroSearch.value;
+  filterProducts();
+}
+
+// Main filter function
+function filterProducts() {
+  const searchText = searchInput.value.toLowerCase();
+  const category = categoryFilter.value;
+  let found = false;
+
+  products.forEach(card => {
+    const title = card.querySelector("h3").textContent.toLowerCase();
+    const cardCategory = card.dataset.category;
+
+    const matchSearch = title.includes(searchText);
+    const matchCategory = category === "all" || cardCategory === category;
+
+    if (matchSearch && matchCategory) {
+  card.classList.remove("hide");
+  found = true;
+} else {
+  card.classList.add("hide");
+}
+
+  });
+
+  noResult.style.display = found ? "none" : "block";
+}
+
+// Events
+searchInput.addEventListener("input", filterProducts);
+categoryFilter.addEventListener("change", filterProducts);
