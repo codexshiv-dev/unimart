@@ -1,217 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Unimart - Smart Gadgets Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="icon" type="images/png" sizes="32x32" href="images/icon/favicon-letter.svg">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Unimart - Smart Gadgets Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+      rel="icon"
+      type="images/png"
+      sizes="32x32"
+      href="images/icon/favicon-letter.svg" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <div class="logo">
+        <a href="#"><img src="images/icon/logo.svg" alt="Unimart Logo" /></a>
+      </div>
+      <nav id="navMenu">
+        <a href="#">Home</a>
+        <a href="#new">New Arrivals</a>
+        <a href="#categories">Categories</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-right">
+        <button class="primary-btn" id="themeBtn">🌙</button>
+        <div class="menu-btn" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
 
-<!-- NAVBAR -->
-<header>
-  <div class="logo">
-   <a href="#"><img src="images/icon/logo.svg" alt="Unimart Logo"></a> 
-  </div>
-  <nav id="navMenu">
-    <a href="#">Home</a>
-    <a href="#new">New Arrivals</a>
-    <a href="#categories">Categories</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="header-right">
-    <button class="primary-btn" id="themeBtn">🌙</button>
-    <div class="menu-btn" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-  
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          Smart <span>Gadgets</span><br />
+          For Smart Kids
+        </h1>
 
-</header>
+        <p>
+          Discover night lights, toys, smart watches, and creative tech for
+          children & babies.
+        </p>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>
-      Smart <span>Gadgets</span><br>
-      For Smart Kids
-    </h1>
+        <!-- Search Bar -->
+        <div class="hero-search">
+          <input
+            type="text"
+            id="heroSearch"
+            placeholder="Search smart toys, night lights, gadgets..." />
+          <button onclick="scrollToProducts()">🔍</button>
+        </div>
 
-    <p>
-      Discover night lights, toys, smart watches, and creative tech for children & babies.
-    </p>
+        <!-- Buttons -->
+        <div class="hero-buttons">
+          <button class="primary-btn">Shop Now</button>
+          <button class="outline-btn">Explore</button>
+        </div>
+      </div>
 
-    <!-- Search Bar -->
-   <div class="hero-search">
-  <input type="text" id="heroSearch" placeholder="Search smart toys, night lights, gadgets...">
-  <button onclick="scrollToProducts()">🔍</button>
-   </div>
+      <div class="hero-img">
+        <img src="images/icon/hero-img.png" alt="Hero Gadgets" />
+      </div>
+    </section>
 
-    <!-- Buttons -->
-    <div class="hero-buttons">
-      <button class="primary-btn">Shop Now</button>
-      <button class="outline-btn">Explore</button>
-    </div>
-  </div>
+    <!-- FEATURED PRODUCT -->
+    <section class="section featured">
+      <div class="featured-box">
+        <div class="featured-text">
+          <h2>Best Seller of the Month</h2>
+          <p>
+            Cute Silicone Night Light for Kids – Safe, Rechargeable and Perfect
+            for Bedtime.
+          </p>
+          <button class="primary-btn">Order Now</button>
+        </div>
 
-  <div class="hero-img">
-    <img src="images/icon/hero-img.png" alt="Hero Gadgets">
-  </div>
-</section>
+        <div class="featured-img">
+          <img src="images/img1.jpeg" alt="Featured Product" />
+        </div>
+      </div>
+    </section>
 
-<!-- FEATURED PRODUCT -->
-<section class="section featured">
-  <div class="featured-box">
-    <div class="featured-text">
-      <h2>Best Seller of the Month</h2>
-      <p>
-        Cute Silicone Night Light for Kids – Safe, Rechargeable and Perfect for Bedtime.
+    <!-- PRODUCT FILTER BAR -->
+    <section class="section">
+      <div class="product-filter">
+        <input type="text" id="searchInput" placeholder="Search products..." />
+
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="lights">Lights</option>
+          <option value="toys">Smart Toys</option>
+          <option value="watches">Smart Watches</option>
+          <option value="decor">Home Decor</option>
+        </select>
+      </div>
+
+      <p
+        id="noResult"
+        style="display: none; text-align: center; margin-top: 20px">
+        ❌ No products found
       </p>
-      <button class="primary-btn">Order Now</button>
-    </div>
+    </section>
 
-    <div class="featured-img">
-      <img src="images/img1.jpeg" alt="Featured Product">
-    </div>
-  </div>
-</section>
+    <!-- NEW ARRIVALS -->
+    <section id="new" class="section">
+      <h2>New Arrivals</h2>
+      <div class="products">
+        <div
+          class="card"
+          data-category="decor"
+          data-name="Rechargeable Silicone Panda Night Light"
+          data-price="Rs.699"
+          data-desc="Cute night light for kids, safe and rechargeable."
+          data-img="images/img1.jpeg">
+          <img src="images/img1.jpeg" alt="Panda Night Light" />
+          <h3>Rechargeable Silicone Panda Night Light</h3>
+          <p>Rs.699</p>
+          <button class="primary-btn">View Details</button>
+        </div>
+        <div
+          class="card"
+          data-category="decor"
+          data-name="Rechargeable Silicone Panda Night Light"
+          data-price="Rs.699"
+          data-desc="Cute night light for kids, safe and rechargeable."
+          data-img="images/img1.jpeg">
+          <img src="images/img1.jpeg" alt="Panda Night Light" />
+          <div class="card-content">
+            <h3>Rechargeable Silicone Panda Night Light</h3>
+            <p class="price">Rs. 699</p>
+            <button class="primary-btn">View Details</button>
+          </div>
+        </div>
 
-<!-- PRODUCT FILTER BAR -->
-<section class="section">
-  <div class="product-filter">
-    <input type="text" id="searchInput" placeholder="Search products...">
+        <div
+          class="card"
+          data-category="lights"
+          data-name="Rechargeable Silicone Panda Night Light"
+          data-price="Rs.699"
+          data-desc="Cute night light for kids, safe and rechargeable."
+          data-img="images/img1.jpeg">
+          <img src="images/img3.jpeg" />
+          <h3>Creative Silicone Night Light</h3>
+          <p>Rs.799</p>
+          <button class="primary-btn">View Details</button>
+        </div>
+        <div
+          class="card"
+          data-name="Rechargeable Silicone Panda Night Light"
+          data-price="Rs.699"
+          data-desc="Cute night light for kids, safe and rechargeable."
+          data-img="images/img1.jpeg">
+          <img src="images/img4.jpeg" />
+          <h3>Mini Projector</h3>
+          <p>Rs.799</p>
+          <button class="primary-btn">View Details</button>
+        </div>
+      </div>
+    </section>
 
-    <select id="categoryFilter">
-      <option value="all">All Categories</option>
-      <option value="lights">Lights</option>
-      <option value="toys">Smart Toys</option>
-      <option value="watches">Smart Watches</option>
-      <option value="decor">Home Decor</option>
-    </select>
-  </div>
+    <!-- CATEGORIES -->
+    <section id="categories" class="section dark">
+      <h2>Categories</h2>
+      <div class="categories">
+        <div class="cat">🚁 Drones</div>
+        <div class="cat">🧸 Smart Toys</div>
+        <div class="cat">⌚ Smart Watches</div>
+        <div class="cat" onclick="setCategory('lights')">💡 Lights</div>
+        <div class="cat">🎮 Games</div>
+        <div class="cat">🖨 Electronics</div>
+      </div>
+    </section>
 
-  <p id="noResult" style="display:none; text-align:center; margin-top:20px;">
-    ❌ No products found
-  </p>
-</section>
+    <!-- WHY US -->
+    <section class="section">
+      <h2>Why Choose Unimart</h2>
+      <div class="why">
+        <div>✔ Best Price</div>
+        <div>✔ Quality Products</div>
+        <div>✔ New Arrivals Weekly</div>
+        <div>✔ Fast Support</div>
+      </div>
+    </section>
+    <!-- Testimonials section  -->
+    <section class="section testimonials">
+      <h2>What Our Customers Say</h2>
 
-<!-- NEW ARRIVALS -->
-<section id="new" class="section">
-  <h2>New Arrivals</h2>
-  <div class="products">
-    <div class="card" data-category="decor">
-       <img src="images/img1.jpeg" alt="Panda Night Light">
-      <h3>Rechargeable Silicone Panda Night Light</h3>
-      <p>Rs.699</p>
-       <button class="primary-btn">Order Now</button>
-    </div>
-   <div class="card" data-category="decor">
-    <img src="images/img1.jpeg" alt="Panda Night Light">
-    <div class="card-content">
-    <h3>Rechargeable Silicone Panda Night Light</h3>
-    <p class="price">Rs. 699</p>
-    <button class="primary-btn">Order Now</button>
-  </div>
-</div>
+      <div class="testimonial-slider">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card">
+            <p>
+              “Very good quality products and reasonable price. My shop
+              customers are very happy.”
+            </p>
+            <h4>– Retail Shop Owner</h4>
+          </div>
 
-    <div class="card" data-category="lights" >
-      <img src="images/img3.jpeg">
-      <h3>Creative Silicone Night Light</h3>
-      <p>Rs.799</p>
-      <button class="primary-btn">Order Now</button>
-    </div>
-    <div class="card" data-category="decor">
-      <img src="images/img4.jpeg">
-      <h3>Mini Projector</h3>
-      <p>Rs.799</p>
-      <button class="primary-btn">Order Now</button>
-    </div>
-  </div>
-</section>
+          <div class="testimonial-card">
+            <p>“Beautiful night lights and home decor items. Fast delivery.”</p>
+            <h4>– Home Customer</h4>
+          </div>
 
-<!-- CATEGORIES -->
-<section id="categories" class="section dark">
-  <h2>Categories</h2>
-  <div class="categories">
-    <div class="cat">🚁 Drones</div>
-    <div class="cat">🧸 Smart Toys</div>
-    <div class="cat">⌚ Smart Watches</div>
-    <div class="cat" onclick="setCategory('lights')">💡 Lights</div>
-    <div class="cat">🎮 Games</div>
-    <div class="cat">🖨 Electronics</div>
-  </div>
-</section>
+          <div class="testimonial-card">
+            <p>
+              “Ordered in bulk for wholesale. Excellent packaging and quality.”
+            </p>
+            <h4>– Wholesale Buyer</h4>
+          </div>
 
-<!-- WHY US -->
-<section class="section">
-  <h2>Why Choose Unimart</h2>
-  <div class="why">
-    <div>✔ Best Price</div>
-    <div>✔ Quality Products</div>
-    <div>✔ New Arrivals Weekly</div>
-    <div>✔ Fast Support</div>
-  </div>
-</section>
-<!-- Testimonials section  -->
-<section class="section testimonials">
-  <h2>What Our Customers Say</h2>
-
-  <div class="testimonial-slider">
-    <div class="testimonial-track" id="testimonialTrack">
-
-      <div class="testimonial-card">
-        <p>“Very good quality products and reasonable price. My shop customers are very happy.”</p>
-        <h4>– Retail Shop Owner</h4>
+          <div class="testimonial-card">
+            <p>
+              “Perfect gadgets and decor for my gift shop. Will order again.”
+            </p>
+            <h4>– Gift Store Owner</h4>
+          </div>
+        </div>
       </div>
 
-      <div class="testimonial-card">
-        <p>“Beautiful night lights and home decor items. Fast delivery.”</p>
-        <h4>– Home Customer</h4>
-      </div>
+      <!-- dots -->
+      <div class="testimonial-dots" id="testimonialDots"></div>
+    </section>
 
-      <div class="testimonial-card">
-        <p>“Ordered in bulk for wholesale. Excellent packaging and quality.”</p>
-        <h4>– Wholesale Buyer</h4>
-      </div>
+    <!-- CONTACT -->
+    <section id="contact" class="section dark">
+      <h2>Contact & Order</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" />
+        <input type="text" placeholder="Phone Number" />
+        <input type="text" placeholder="Product Name" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit" class="primary-btn">Send Order</button>
+      </form>
+    </section>
 
-      <div class="testimonial-card">
-        <p>“Perfect gadgets and decor for my gift shop. Will order again.”</p>
-        <h4>– Gift Store Owner</h4>
-      </div>
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 Unimart | Smart Gadgets Store</p>
+    </footer>
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeModal">
+          <i class="fa fa-times"></i>
+        </span>
 
+        <img id="modalImg" src="" alt="" />
+        <h2 id="modalTitle"></h2>
+        <p id="modalPrice"></p>
+        <p id="modalDesc"></p>
+
+        <a id="whatsappBtn" target="_blank" class="whatsapp-btn">
+          <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+        </a>
+        <p style="font-size: 12px; opacity: 0.6; margin-top: 10px">
+          Tap outside or X to close
+        </p>
+      </div>
     </div>
-  </div>
 
-  <!-- dots -->
-  <div class="testimonial-dots" id="testimonialDots"></div>
-</section>
-
-
-<!-- CONTACT -->
-<section id="contact" class="section dark">
-  <h2>Contact & Order</h2>
-  <form class="contact-form">
-    <input type="text" placeholder="Your Name">
-    <input type="text" placeholder="Phone Number">
-    <input type="text" placeholder="Product Name">
-    <textarea placeholder="Message"></textarea>
-    <button type="submit" class="primary-btn">Send Order</button>
-  </form>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Unimart | Smart Gadgets Store</p>
-</footer>
-
-
-
-<script src="js/script.js"></script>
-
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>
- 

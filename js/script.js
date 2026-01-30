@@ -154,3 +154,47 @@ function filterProducts() {
 // Events
 searchInput.addEventListener("input", filterProducts);
 categoryFilter.addEventListener("change", filterProducts);
+
+
+///product modeal detailed js 
+// PRODUCT MODAL
+const cardss = document.querySelectorAll(".products .card");
+const modal = document.getElementById("productModal");
+const modalImg = document.getElementById("modalImg");
+const modalTitle = document.getElementById("modalTitle");
+const modalPrice = document.getElementById("modalPrice");
+const modalDesc = document.getElementById("modalDesc");
+const whatsappBtn = document.getElementById("whatsappBtn");
+const closeModal = document.getElementById("closeModal");
+
+cardss.forEach(card => {
+  card.addEventListener("click", () => {
+    const name = card.dataset.name;
+    const price = card.dataset.price;
+    const desc = card.dataset.desc;
+    const img = card.dataset.img;
+
+    modalImg.src = img;
+    modalTitle.textContent = name;
+    modalPrice.textContent = price;
+    modalDesc.textContent = desc;
+
+    const message = `Hi, I want to order:\n${name}\nPrice: ${price}`;
+    whatsappBtn.href = `https://wa.me/+9779700013011?text=${encodeURIComponent(message)}`;
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden"; // stop background scroll
+  });
+});
+// Close button
+closeModal.addEventListener("click", () => {
+  modal.classList.remove("active");
+   document.body.style.overflow = "auto";
+});
+// Click outside modal
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+     document.body.style.overflow = "auto";
+  }
+});

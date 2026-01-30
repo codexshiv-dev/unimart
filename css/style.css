@@ -405,7 +405,7 @@ button {
   border-radius: 16px;
   transition: 0.3s;
   box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-
+   cursor: pointer;
    width: 100%;
   
 }
@@ -590,6 +590,130 @@ footer {
   background: black;
   text-align: center;
 }
+/* ///product detailed */
+/* PRODUCT MODAL */
+/* PRODUCT MODAL */
+.product-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.product-modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: linear-gradient(180deg,var(--card-grad-1),var(--card-grad-2));
+  padding: 22px;
+  border-radius: 22px;
+  max-width: 380px;
+  width: 92%;
+  text-align: center;
+  animation: zoomIn 0.3s ease;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.modal-content h2 {
+  color: var(--primary);
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.modal-price {
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.modal-content p {
+  margin: 8px 0;
+  color: var(--text-light);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+
+/* WhatsApp button */
+.whatsapp-btn {
+  display: block;
+  margin-top: 15px;
+  padding: 12px;
+  background: linear-gradient(45deg,#25D366,#1ebe5d);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(37,211,102,0.5);
+}
+
+/* Animation */
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 18px;
+  }
+
+  .modal-content h2 {
+    font-size: 18px;
+  }
+  .close-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+}
+
 
 
 /* ================= MOBILE MENU ================= */
