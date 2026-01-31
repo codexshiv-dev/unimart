@@ -158,43 +158,63 @@ categoryFilter.addEventListener("change", filterProducts);
 
 ///product modeal detailed js 
 // PRODUCT MODAL
+// PRODUCT MODAL
 const cardss = document.querySelectorAll(".products .card");
 const modal = document.getElementById("productModal");
 const modalImg = document.getElementById("modalImg");
 const modalTitle = document.getElementById("modalTitle");
 const modalPrice = document.getElementById("modalPrice");
+const modalSave = document.getElementById("modalSave");
 const modalDesc = document.getElementById("modalDesc");
 const whatsappBtn = document.getElementById("whatsappBtn");
 const closeModal = document.getElementById("closeModal");
 
+// open modal on card click
 cardss.forEach(card => {
-  card.addEventListener("click", () => {
-    const name = card.dataset.name;
-    const price = card.dataset.price;
-    const desc = card.dataset.desc;
-    const img = card.dataset.img;
-
-    modalImg.src = img;
-    modalTitle.textContent = name;
-    modalPrice.textContent = price;
-    modalDesc.textContent = desc;
-
-    const message = `Hi, I want to order:\n${name}\nPrice: ${price}`;
-    whatsappBtn.href = `https://wa.me/+9779700013011?text=${encodeURIComponent(message)}`;
-
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden"; // stop background scroll
-  });
+  card.addEventListener("click", () => openModal(card));
 });
-// Close button
-closeModal.addEventListener("click", () => {
-  modal.classList.remove("active");
-   document.body.style.overflow = "auto";
-});
-// Click outside modal
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("active");
-     document.body.style.overflow = "auto";
+
+function openModal(card) {
+  const name = card.dataset.name;
+  const price = Number(card.dataset.price);
+  const oldPrice = Number(card.dataset.oldprice);
+  const desc = card.dataset.desc;
+  const img = card.dataset.img;
+
+  modalImg.src = img;
+  modalTitle.textContent = name;
+  modalDesc.textContent = desc;
+
+  // price + discount
+  if (!isNaN(price) && !isNaN(oldPrice) && oldPrice > price) {
+    const save = oldPrice - price;
+    const percent = Math.round((save / oldPrice) * 100);
+
+    modalPrice.innerHTML = `
+      Rs.${price} 
+      <span class="old-price">Rs.${oldPrice}</span>
+    `;
+    modalSave.textContent = `You save Rs.${save} (${percent}% OFF)`;
+  } else {
+    modalPrice.textContent = `Rs.${price}`;
+    modalSave.textContent = "";
   }
+
+  const message = `Hi, I want to order:\n${name}\nPrice: Rs.${price}`;
+  whatsappBtn.href = `https://wa.me/9779700013011?text=${encodeURIComponent(message)}`;
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+// Close modal
+closeModal.addEventListener("click", closeModalFn);
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModalFn();
 });
+
+function closeModalFn() {
+  modal.classList.remove("active");
+  document.body.style.overflow = "auto";
+}

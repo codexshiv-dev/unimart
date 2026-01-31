@@ -407,6 +407,7 @@ button {
   box-shadow: 0 10px 20px rgba(0,0,0,0.4);
    cursor: pointer;
    width: 100%;
+   position: relative;
   
 }
 .card:hover {
@@ -433,6 +434,9 @@ button {
   font-weight: 600;
   margin-bottom: 5px;
 }
+
+
+
 /* HIDE FILTERED CARDS */
 .card.hide {
   opacity: 0;
@@ -591,7 +595,50 @@ footer {
   text-align: center;
 }
 /* ///product detailed */
-/* PRODUCT MODAL */
+
+/* DISCOUNT BADGE */
+.discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ff3b3b;
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255,59,59,0.4);
+}
+.price {
+   font-weight: bold;
+  color: var(--primary);
+}
+.old-price {
+  text-decoration: line-through;
+  opacity: 0.6;
+  margin-left: 6px;
+}
+
+/* PRODUCT MODAL   product features*/
+.product-features{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:8px;
+  margin:12px 0;
+  padding:0;
+  list-style:none;
+  font-size:14px;
+  color: var(--text-light);
+}
+
+.product-features li{
+  background: rgba(255,255,255,0.05);
+  padding:6px 10px;
+  border-radius:10px;
+}
+
+
+
 /* PRODUCT MODAL */
 .product-modal {
   position: fixed;
@@ -610,10 +657,12 @@ footer {
 
 .modal-content {
   background: linear-gradient(180deg,var(--card-grad-1),var(--card-grad-2));
-  padding: 22px;
-  border-radius: 22px;
-  max-width: 380px;
-  width: 92%;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 90%;
+  max-height: 85vh;       /* VERY IMPORTANT */
+  overflow-y: auto;       
   text-align: center;
   animation: zoomIn 0.3s ease;
   position: relative;
@@ -646,13 +695,25 @@ footer {
   line-height: 1.4;
 }
 
+
+#modalPrice {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary);
+}
+#modalSave {
+  color: #22c55e;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 /* Close button */
-.close-btn {
-  position: absolute;
+/* .close-btn {
+  position: sticky;
   top: 12px;
   right: 12px;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: rgba(0,0,0,0.6);
   color: white;
@@ -665,6 +726,21 @@ footer {
   justify-content: center;
 
   transition: 0.3s ease;
+  z-index: 10;
+} */
+.close-btn{
+  position: sticky;
+  top: 0;
+  margin-left: auto;
+  display: block;
+  font-size: 22px;
+  background: rgba(0,0,0,0.6);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
   z-index: 10;
 }
 
@@ -679,24 +755,22 @@ footer {
   display: block;
   margin-top: 15px;
   padding: 12px;
-  background: linear-gradient(45deg,#25D366,#1ebe5d);
+  background: #25D366;
   color: white;
-  border-radius: 30px;
+  border-radius: 25px;
   text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+  font-weight: 600;
+  text-align: center;
+  transition: background 0.2s ease;
+  position: sticky;
+  bottom: 0px;
 }
 
 .whatsapp-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(37,211,102,0.5);
+  background: #1ebe5d;
 }
 
-/* Animation */
-@keyframes zoomIn {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+
 
 /* Mobile */
 @media (max-width: 600px) {
@@ -712,6 +786,35 @@ footer {
     height: 40px;
     font-size: 24px;
   }
+}
+
+
+/* Modern WhatsApp Floating Button */
+.whatsapp-float{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  z-index: 5000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.whatsapp-float img{
+  width: 28px;
+  height: 28px;
 }
 
 
