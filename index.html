@@ -102,11 +102,11 @@
         </select>
       </div>
 
-      <p
-        id="noResult"
-        style="display: none; text-align: center; margin-top: 20px">
-        ❌ No products found
-      </p>
+      <div id="noResult" class="no-result">
+        <img src="images/icon/empty-box.svg" alt="No products" />
+        <h3>No products found</h3>
+        <p>Try selecting another category or search with different keywords.</p>
+      </div>
     </section>
 
     <!-- NEW ARRIVALS -->
@@ -128,12 +128,12 @@
           <h3>Rechargeable Silicone Panda Night Light</h3>
 
           <p class="price">Rs.699 <span class="old-price">Rs.999</span></p>
-          <button class="primary-btn">View Details</button>
+          <button class="primary-btn">View</button>
         </div>
         <div
           class="card"
           data-features="Free Delivery,Rechargeable,Cash on Delivery,Warranty"
-          data-category="lights"
+          data-category="toys"
           data-name="Rechargeable Silicone Panda Night Light"
           data-price="699"
           data-oldprice="999"
@@ -144,7 +144,7 @@
           <div class="card-content">
             <h3>Rechargeable Silicone Panda Night Light</h3>
             <p class="price">Rs.699 <span class="old-price">Rs.999</span></p>
-            <button class="primary-btn">View Details</button>
+            <button class="primary-btn">View</button>
           </div>
         </div>
 
@@ -161,12 +161,12 @@
           <img src="images/img3.jpeg" />
           <h3>Creative Silicone Night Light</h3>
           <p class="price">Rs.699 <span class="old-price">Rs.999</span></p>
-          <button class="primary-btn">View Details</button>
+          <button class="primary-btn">View</button>
         </div>
         <div
           class="card"
           data-features="Free Delivery,Rechargeable,Cash on Delivery,Warranty"
-          data-category="lights"
+          data-category="decor"
           data-name="Rechargeable Silicone Panda Night Light"
           data-price="699"
           data-oldprice="999"
@@ -176,7 +176,7 @@
           <img src="images/img4.jpeg" />
           <h3>Mini Projector</h3>
           <p class="price">Rs.699 <span class="old-price">Rs.999</span></p>
-          <button class="primary-btn">View Details</button>
+          <button class="primary-btn">View</button>
         </div>
       </div>
     </section>
@@ -185,25 +185,49 @@
     <section id="categories" class="section dark">
       <h2>Categories</h2>
       <div class="categories">
-        <div class="cat">🚁 Drones</div>
-        <div class="cat">🧸 Smart Toys</div>
-        <div class="cat">⌚ Smart Watches</div>
         <div class="cat" onclick="setCategory('lights')">💡 Lights</div>
-        <div class="cat">🎮 Games</div>
-        <div class="cat">🖨 Electronics</div>
+        <div class="cat" onclick="setCategory('toys')">🧸 Smart Toys</div>
+        <div class="cat" onclick="setCategory('watches')">⌚ Smart Watches</div>
+        <div class="cat" onclick="setCategory('decor')">🏠 Home Decor</div>
+        <div class="cat" onclick="setCategory('games')">🎮 Games</div>
+
+        <div class="cat" onclick="setCategory('Electronics')">
+          🖨 Electronics
+        </div>
       </div>
     </section>
 
-    <!-- WHY US -->
-    <section class="section">
+    <!-- WHY US  trust section-->
+    <section class="section trust">
       <h2>Why Choose Unimart</h2>
-      <div class="why">
-        <div>✔ Best Price</div>
-        <div>✔ Quality Products</div>
-        <div>✔ New Arrivals Weekly</div>
-        <div>✔ Fast Support</div>
+
+      <div class="trust-grid">
+        <div class="trust-card">
+          <i class="fa-solid fa-truck-fast"></i>
+          <h3>Free Delivery</h3>
+          <p>Fast & safe delivery to your doorstep.</p>
+        </div>
+
+        <div class="trust-card">
+          <i class="fa-solid fa-money-bill-wave"></i>
+          <h3>Cash on Delivery</h3>
+          <p>Pay only when your product arrives.</p>
+        </div>
+
+        <div class="trust-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Quality Products</h3>
+          <p>Tested and trusted gadgets for kids.</p>
+        </div>
+
+        <div class="trust-card">
+          <i class="fa-solid fa-headset"></i>
+          <h3>Fast Support</h3>
+          <p>Order easily via WhatsApp chat.</p>
+        </div>
       </div>
     </section>
+
     <!-- Testimonials section  -->
     <section class="section testimonials">
       <h2>What Our Customers Say</h2>
@@ -243,28 +267,78 @@
       <div class="testimonial-dots" id="testimonialDots"></div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section dark">
-      <h2>Contact & Order</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" />
-        <input type="text" placeholder="Phone Number" />
-        <input type="text" placeholder="Product Name" />
-        <textarea placeholder="Message"></textarea>
-        <button type="submit" class="primary-btn">Send Order</button>
-      </form>
-    </section>
-
     <!-- FOOTER -->
-    <footer>
-      <p>© 2026 Unimart | Smart Gadgets Store</p>
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Brand -->
+        <div class="footer-col">
+          <img
+            src="images/icon/logo.svg"
+            alt="Unimart Logo"
+            class="footer-logo" />
+          <p class="footer-text">
+            Unimart is your trusted store for smart gadgets, toys and home decor
+            for kids and families.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#new">New Arrivals</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#contact">Order</a></li>
+            <li><a href="#">Home</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><i class="fa fa-phone"></i> +977 9700013011</p>
+          <p><i class="fa fa-envelope"></i> support@unimart.com</p>
+          <p><i class="fa fa-location-dot"></i> Kathmandu, Nepal</p>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+
+          <p class="trust-text">
+            ✔ Secure Orders <br />
+            ✔ Fast Delivery <br />
+            ✔ Quality Products
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <p>© 2026 Unimart | All Rights Reserved</p>
+        <p class="dev-credit">
+          Designed & Developed by
+          <a href="https://sng.com.np" target="_blank">SNG Web Studio</a>
+        </p>
+      </div>
     </footer>
+
     <!-- Product Detail Modal -->
     <div class="product-modal" id="productModal">
       <div class="modal-content">
         <span class="close-btn" id="closeModal">
           <i class="fa fa-times"></i>
         </span>
+
+        <!-- <div class="modal-img-wrap">
+          <img id="modalImg" src="" alt="" />
+        </div> -->
 
         <img id="modalImg" src="" alt="" />
         <h2 id="modalTitle"></h2>

@@ -10,7 +10,7 @@ function toggleMenu() {
 const navMenu = document.getElementById("navMenu");
 const menuBtn = document.querySelector(".menu-btn");
 
-document.querySelectorAll("#navMenu a").forEach(link => {
+document.querySelectorAll("#navMenu a").forEach((link) => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("active");
     menuBtn.classList.remove("open"); // 👈 reset hamburger icon
@@ -25,7 +25,6 @@ document.querySelectorAll("#navMenu a").forEach(link => {
 //    menuBtn.classList.toggle("open");
 // });
 
-
 // Close menu when clicking a link (mobile UX)
 // document.querySelectorAll("#navMenu a").forEach(link => {
 //   link.addEventListener("click", () => {
@@ -33,12 +32,11 @@ document.querySelectorAll("#navMenu a").forEach(link => {
 //   });
 // });
 
-
 // Scroll animation
 const sections = document.querySelectorAll(".section");
 
 window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
+  sections.forEach((sec) => {
     const pos = sec.getBoundingClientRect().top;
     const screenPos = window.innerHeight / 1.3;
 
@@ -47,7 +45,6 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-
 
 // Dark/Light mode Js
 const themeBtn = document.getElementById("themeBtn");
@@ -61,7 +58,6 @@ themeBtn.addEventListener("click", () => {
     themeBtn.textContent = "🌙";
   }
 });
-
 
 //Testimonial section
 const track = document.getElementById("testimonialTrack");
@@ -88,7 +84,7 @@ function moveToSlide(i) {
 }
 
 function updateDots() {
-  dots.forEach(dot => dot.classList.remove("active"));
+  dots.forEach((dot) => dot.classList.remove("active"));
   dots[index].classList.add("active");
 }
 
@@ -101,13 +97,17 @@ function startAutoSlide() {
 }
 
 // Pause on hover
-document.querySelector(".testimonial-slider").addEventListener("mouseenter", () => {
-  clearInterval(interval);
-});
+document
+  .querySelector(".testimonial-slider")
+  .addEventListener("mouseenter", () => {
+    clearInterval(interval);
+  });
 
-document.querySelector(".testimonial-slider").addEventListener("mouseleave", () => {
-  startAutoSlide();
-});
+document
+  .querySelector(".testimonial-slider")
+  .addEventListener("mouseleave", () => {
+    startAutoSlide();
+  });
 
 startAutoSlide();
 
@@ -132,7 +132,12 @@ function filterProducts() {
   const category = categoryFilter.value;
   let found = false;
 
-  products.forEach(card => {
+  // nee add
+  if (!found) {
+    document.getElementById("new").scrollIntoView({ behavior: "smooth" });
+  }
+  ///end
+  products.forEach((card) => {
     const title = card.querySelector("h3").textContent.toLowerCase();
     const cardCategory = card.dataset.category;
 
@@ -140,12 +145,11 @@ function filterProducts() {
     const matchCategory = category === "all" || cardCategory === category;
 
     if (matchSearch && matchCategory) {
-  card.classList.remove("hide");
-  found = true;
-} else {
-  card.classList.add("hide");
-}
-
+      card.classList.remove("hide");
+      found = true;
+    } else {
+      card.classList.add("hide");
+    }
   });
 
   noResult.style.display = found ? "none" : "block";
@@ -155,8 +159,7 @@ function filterProducts() {
 searchInput.addEventListener("input", filterProducts);
 categoryFilter.addEventListener("change", filterProducts);
 
-
-///product modeal detailed js 
+///product modeal detailed js
 // PRODUCT MODAL
 // PRODUCT MODAL
 const cardss = document.querySelectorAll(".products .card");
@@ -170,7 +173,7 @@ const whatsappBtn = document.getElementById("whatsappBtn");
 const closeModal = document.getElementById("closeModal");
 
 // open modal on card click
-cardss.forEach(card => {
+cardss.forEach((card) => {
   card.addEventListener("click", () => openModal(card));
 });
 
@@ -200,11 +203,23 @@ function openModal(card) {
     modalSave.textContent = "";
   }
 
-  const message = `Hi, I want to order:\n${name}\nPrice: Rs.${price}`;
-  whatsappBtn.href = `https://wa.me/9779700013011?text=${encodeURIComponent(message)}`;
+  // message for order
 
+  const message = `Hello 👋 Unimart Team,
+
+      I would like to order this product:
+
+         📦 Product: ${name}
+               💰 Price: Rs.${price}
+
+                 Kindly confirm stock and delivery process.
+
+                      Thanks you!`;
+
+  whatsappBtn.href = `https://wa.me/9779700013011?text=${encodeURIComponent(message)}`;
+  // end ------
   modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden"; //scroll hidden
 }
 
 // Close modal
@@ -217,4 +232,18 @@ modal.addEventListener("click", (e) => {
 function closeModalFn() {
   modal.classList.remove("active");
   document.body.style.overflow = "auto";
+}
+
+// for clickable category
+const cats = document.querySelectorAll(".cat");
+
+function setCategory(category) {
+  categoryFilter.value = category;
+  searchInput.value = "";
+  filterProducts();
+
+  cats.forEach((cat) => cat.classList.remove("active"));
+  event.target.classList.add("active");
+
+  document.getElementById("new").scrollIntoView({ behavior: "smooth" });
 }
