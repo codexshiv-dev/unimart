@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Add Product</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="sidebar">
+        <a href="/admin/dashboard.html">Dashboard</a>
+        <a href="/admin/products.html">Products</a>
+        <a href="/admin/add-product.html" class="active">Add Product</a>
+      </aside>
+
+      <main class="admin-main">
+        <h1>Add Product</h1>
+
+        <form class="product-form">
+          <input type="text" placeholder="Product Name" />
+          <input type="number" placeholder="Price" />
+          <input type="number" placeholder="Old Price" />
+          <select>
+            <option>Lights</option>
+            <option>Toys</option>
+            <option>Decor</option>
+          </select>
+          <textarea placeholder="Description"></textarea>
+          <input type="file" />
+          <button class="btn btn-primary">Save Product</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

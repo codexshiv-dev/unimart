@@ -1,3 +1,6 @@
+// ==========================
+// NAVBAR TOGGLE FUNCTIONALITY
+// ==========================
 function toggleMenu() {
   const nav = document.getElementById("navMenu");
   const menuBtn = document.querySelector(".menu-btn");
@@ -16,23 +19,10 @@ document.querySelectorAll("#navMenu a").forEach((link) => {
     menuBtn.classList.remove("open"); // 👈 reset hamburger icon
   });
 });
-// const menuBtn = document.getElementById("menuBtn");
-// const navMenu = document.getElementById("navMenu");
 
-// // Hamburger toggle
-// menuBtn.addEventListener("click", () => {
-//   navMenu.classList.toggle("active");
-//    menuBtn.classList.toggle("open");
-// });
-
-// Close menu when clicking a link (mobile UX)
-// document.querySelectorAll("#navMenu a").forEach(link => {
-//   link.addEventListener("click", () => {
-//     navMenu.classList.remove("active");
-//   });
-// });
-
-// Scroll animation
+// ==========================
+// SCROLL ANIMATION FOR SECTIONS
+// ==========================
 const sections = document.querySelectorAll(".section");
 
 window.addEventListener("scroll", () => {
@@ -46,7 +36,9 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Dark/Light mode Js
+// ==========================
+// DARK/LIGHT MODE TOGGLE
+// ==========================
 const themeBtn = document.getElementById("themeBtn");
 
 themeBtn.addEventListener("click", () => {
@@ -59,7 +51,9 @@ themeBtn.addEventListener("click", () => {
   }
 });
 
-//Testimonial section
+// ==========================
+// TESTIMONIAL SLIDER FUNCTIONALITY
+// ==========================
 const track = document.getElementById("testimonialTrack");
 const dotsContainer = document.getElementById("testimonialDots");
 const cards = document.querySelectorAll(".testimonial-card");
@@ -67,19 +61,24 @@ const cards = document.querySelectorAll(".testimonial-card");
 let index = 0;
 let interval;
 
-// Create dots dynamically
+// Create dots
 cards.forEach((_, i) => {
   const dot = document.createElement("span");
+  dot.classList.add("dot");
   if (i === 0) dot.classList.add("active");
   dotsContainer.appendChild(dot);
-  dot.addEventListener("click", () => moveToSlide(i));
+
+  dot.addEventListener("click", () => {
+    moveToSlide(i);
+    resetAutoSlide();
+  });
 });
 
 const dots = document.querySelectorAll(".testimonial-dots span");
 
 function moveToSlide(i) {
   index = i;
-  track.style.transform = `translateX(-${index * 100}%)`;
+  track.style.transform = `translateX(-${i * 100}%)`;
   updateDots();
 }
 
@@ -96,27 +95,26 @@ function startAutoSlide() {
   }, 4000);
 }
 
-// Pause on hover
-document
-  .querySelector(".testimonial-slider")
-  .addEventListener("mouseenter", () => {
-    clearInterval(interval);
-  });
+function resetAutoSlide() {
+  clearInterval(interval);
+  startAutoSlide();
+}
 
-document
-  .querySelector(".testimonial-slider")
-  .addEventListener("mouseleave", () => {
-    startAutoSlide();
-  });
+// Pause on hover
+const slider = document.querySelector(".testimonial-slider");
+
+slider.addEventListener("mouseenter", () => clearInterval(interval));
+slider.addEventListener("mouseleave", startAutoSlide);
 
 startAutoSlide();
 
-//End testimonial section
-//filter bar
+// ==========================
+// PRODUCT FILTER FUNCTIONALITY
+// ==========================
 const heroSearch = document.getElementById("heroSearch");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
-const products = document.querySelectorAll(".products .card");
+const products = document.querySelectorAll(".products .product-card");
 const noResult = document.getElementById("noResult");
 
 // Scroll to products from hero search
@@ -132,11 +130,6 @@ function filterProducts() {
   const category = categoryFilter.value;
   let found = false;
 
-  // nee add
-  if (!found) {
-    document.getElementById("new").scrollIntoView({ behavior: "smooth" });
-  }
-  ///end
   products.forEach((card) => {
     const title = card.querySelector("h3").textContent.toLowerCase();
     const cardCategory = card.dataset.category;
@@ -159,10 +152,10 @@ function filterProducts() {
 searchInput.addEventListener("input", filterProducts);
 categoryFilter.addEventListener("change", filterProducts);
 
-///product modeal detailed js
-// PRODUCT MODAL
-// PRODUCT MODAL
-const cardss = document.querySelectorAll(".products .card");
+// ==========================
+// PRODUCT MODAL FUNCTIONALITY
+// ==========================
+const cardss = document.querySelectorAll(".products .product-card");
 const modal = document.getElementById("productModal");
 const modalImg = document.getElementById("modalImg");
 const modalTitle = document.getElementById("modalTitle");
@@ -204,17 +197,16 @@ function openModal(card) {
   }
 
   // message for order
-
   const message = `Hello 👋 Unimart Team,
 
       I would like to order this product:
 
-         📦 Product: ${name}
-               💰 Price: Rs.${price}
+     📦 Product: ${name}
+     💰 Price: Rs.${price}
 
-                 Kindly confirm stock and delivery process.
+      Kindly confirm stock and delivery process.
 
-                      Thanks you!`;
+      Thanks you!`;
 
   whatsappBtn.href = `https://wa.me/9779700013011?text=${encodeURIComponent(message)}`;
   // end ------
@@ -234,8 +226,10 @@ function closeModalFn() {
   document.body.style.overflow = "auto";
 }
 
-// for clickable category
-const cats = document.querySelectorAll(".cat");
+// ==========================
+// CATEGORY FILTER FUNCTIONALITY
+// ==========================
+const cats = document.querySelectorAll(".category-card");
 
 function setCategory(category) {
   categoryFilter.value = category;

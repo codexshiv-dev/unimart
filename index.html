@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Unimart - Smart Gadgets Store</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unimart – Smart Gadgets & Kids Products in Nepal</title>
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
@@ -13,9 +12,26 @@
       type="images/png"
       sizes="32x32"
       href="images/icon/favicon-letter.svg" />
+    <meta
+      name="description"
+      content="Unimart offers smart gadgets, kids toys, night lamps and home decor in Nepal. Order easily via WhatsApp. Fast delivery & trusted store." />
+    <meta
+      name="keywords"
+      content="unimart, gadgets nepal, kids toys nepal, night lamp nepal, online store nepal" />
+    <meta name="author" content="Unimart" />
+    <meta property="og:title" content="Unimart - Smart Gadgets Store" />
+    <meta
+      property="og:description"
+      content="Smart gadgets, toys & night lights for kids. Order easily via WhatsApp." />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/images/icon/logo.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <!-- NAVBAR -->
+    <!-- NAVBAR | Header -->
     <header>
       <div class="logo">
         <a href="#"><img src="images/icon/logo.svg" alt="Unimart Logo" /></a>
@@ -24,10 +40,9 @@
         <a href="#">Home</a>
         <a href="#new">New Arrivals</a>
         <a href="#categories">Categories</a>
-        <a href="#contact">Contact</a>
       </nav>
       <div class="header-right">
-        <button class="primary-btn" id="themeBtn">🌙</button>
+        <button class="btn-primary" id="themeBtn">🌙</button>
         <div class="menu-btn" onclick="toggleMenu()">
           <span></span>
           <span></span>
@@ -36,7 +51,7 @@
       </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-content">
         <h1>
@@ -55,13 +70,13 @@
             type="text"
             id="heroSearch"
             placeholder="Search smart toys, night lights, gadgets..." />
-          <button onclick="scrollToProducts()">🔍</button>
+          <button class="btn" onclick="scrollToProducts()">🔍</button>
         </div>
 
         <!-- Buttons -->
         <div class="hero-buttons">
-          <button class="primary-btn">Shop Now</button>
-          <button class="outline-btn">Explore</button>
+          <button class="btn-primary">Shop Now</button>
+          <button class="btn-outline">Explore</button>
         </div>
       </div>
 
@@ -79,7 +94,7 @@
             Cute Silicone Night Light for Kids – Safe, Rechargeable and Perfect
             for Bedtime.
           </p>
-          <button class="primary-btn">Order Now</button>
+          <button class="btn-primary">Order Now</button>
         </div>
 
         <div class="featured-img">
@@ -103,18 +118,18 @@
       </div>
 
       <div id="noResult" class="no-result">
-        <img src="images/icon/empty-box.svg" alt="No products" />
+        <img src="images/icon/empty-box.svg" alt=" " />
         <h3>No products found</h3>
         <p>Try selecting another category or search with different keywords.</p>
       </div>
     </section>
 
-    <!-- NEW ARRIVALS -->
+    <!-- Products -->
     <section id="new" class="section">
       <h2>New Arrivals</h2>
       <div class="products">
         <div
-          class="card"
+          class="product-card"
           data-features="Free Delivery,Rechargeable,Cash on Delivery,Warranty"
           data-category="lights"
           data-name="Rechargeable Silicone Panda Night Light"
@@ -128,13 +143,13 @@
           <h3>Rechargeable Silicone Panda Night Light</h3>
 
           <p class="price">Rs.699 <span class="old-price">Rs.999</span></p>
-          <button class="primary-btn">View</button>
+          <button class="btn btn-small btn-outline">View</button>
         </div>
         <div
-          class="card"
+          class="product-card"
           data-features="Free Delivery,Rechargeable,Cash on Delivery,Warranty"
-          data-category="toys"
-          data-name="Rechargeable Silicone Panda Night Light"
+          data-category="decor"
+          data-name="Mini Projector"
           data-price="699"
           data-oldprice="999"
           data-desc="Cute night light for kids, safe and rechargeable."
@@ -144,12 +159,12 @@
           <div class="card-content">
             <h3>Rechargeable Silicone Panda Night Light</h3>
             <p class="price">Rs.699 <span class="old-price">Rs.999</span></p>
-            <button class="primary-btn">View</button>
+            <button class="btn btn-primary btn-small">View</button>
           </div>
         </div>
 
         <div
-          class="card"
+          class="product-card"
           data-features="Free Delivery,Rechargeable,Cash on Delivery,Warranty"
           data-category="lights"
           data-name="Rechargeable Silicone Panda Night Light"
@@ -161,10 +176,10 @@
           <img src="images/img3.jpeg" />
           <h3>Creative Silicone Night Light</h3>
           <p class="price">Rs.699 <span class="old-price">Rs.999</span></p>
-          <button class="primary-btn">View</button>
+          <button class="btn btn-primary btn-small">View</button>
         </div>
         <div
-          class="card"
+          class="product-card"
           data-features="Free Delivery,Rechargeable,Cash on Delivery,Warranty"
           data-category="decor"
           data-name="Rechargeable Silicone Panda Night Light"
@@ -176,7 +191,7 @@
           <img src="images/img4.jpeg" />
           <h3>Mini Projector</h3>
           <p class="price">Rs.699 <span class="old-price">Rs.999</span></p>
-          <button class="primary-btn">View</button>
+          <button class="btn btn-primary btn-small">View</button>
         </div>
       </div>
     </section>
@@ -185,19 +200,27 @@
     <section id="categories" class="section dark">
       <h2>Categories</h2>
       <div class="categories">
-        <div class="cat" onclick="setCategory('lights')">💡 Lights</div>
-        <div class="cat" onclick="setCategory('toys')">🧸 Smart Toys</div>
-        <div class="cat" onclick="setCategory('watches')">⌚ Smart Watches</div>
-        <div class="cat" onclick="setCategory('decor')">🏠 Home Decor</div>
-        <div class="cat" onclick="setCategory('games')">🎮 Games</div>
+        <div class="category-card" onclick="setCategory('lights')">
+          💡 Lights
+        </div>
+        <div class="category-card" onclick="setCategory('toys')">
+          🧸 Smart Toys
+        </div>
+        <div class="category-card" onclick="setCategory('watches')">
+          ⌚ Smart Watches
+        </div>
+        <div class="category-card" onclick="setCategory('decor')">
+          🏠 Home Decor
+        </div>
+        <div class="category-card" onclick="setCategory('games')">🎮 Games</div>
 
-        <div class="cat" onclick="setCategory('Electronics')">
+        <div class="category-card" onclick="setCategory('electronics')">
           🖨 Electronics
         </div>
       </div>
     </section>
 
-    <!-- WHY US  trust section-->
+    <!-- Trust / Why Choose Us -->
     <section class="section trust">
       <h2>Why Choose Unimart</h2>
 
@@ -228,9 +251,9 @@
       </div>
     </section>
 
-    <!-- Testimonials section  -->
+    <!-- Testimonials -->
     <section class="section testimonials">
-      <h2>What Our Customers Say</h2>
+      <h2 class="title">What Our Customers Say</h2>
 
       <div class="testimonial-slider">
         <div class="testimonial-track" id="testimonialTrack">
@@ -239,7 +262,7 @@
               “Very good quality products and reasonable price. My shop
               customers are very happy.”
             </p>
-            <h4>– Retail Shop Owner</h4>
+            <h4>- Retail Shop Owner</h4>
           </div>
 
           <div class="testimonial-card">
@@ -272,10 +295,13 @@
       <div class="footer-container">
         <!-- Brand -->
         <div class="footer-col">
-          <img
-            src="images/icon/logo.svg"
-            alt="Unimart Logo"
-            class="footer-logo" />
+          <a href="#">
+            <img
+              src="images/icon/logo.svg"
+              alt="Unimart Logo"
+              class="footer-logo"
+          /></a>
+
           <p class="footer-text">
             Unimart is your trusted store for smart gadgets, toys and home decor
             for kids and families.
@@ -288,7 +314,7 @@
           <ul>
             <li><a href="#new">New Arrivals</a></li>
             <li><a href="#categories">Categories</a></li>
-            <li><a href="#contact">Order</a></li>
+            <li><a href="#new">Shop</a></li>
             <li><a href="#">Home</a></li>
           </ul>
         </div>
@@ -296,9 +322,23 @@
         <!-- Contact -->
         <div class="footer-col">
           <h4>Contact</h4>
-          <p><i class="fa fa-phone"></i> +977 9700013011</p>
-          <p><i class="fa fa-envelope"></i> support@unimart.com</p>
-          <p><i class="fa fa-location-dot"></i> Kathmandu, Nepal</p>
+          <p>
+            <i class="fa fa-phone"></i>
+            <a href="tel:+9779700013011">+977 9700013011</a>
+          </p>
+          <p>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:support@unimart.com">support@unimart.com</a>
+          </p>
+          <p>
+            <i class="fa fa-location-dot"></i>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Kathmandu,Nepal"
+              target="_blank"
+              class="footer-location">
+              Kathmandu, Nepal
+            </a>
+          </p>
         </div>
 
         <!-- Social -->
@@ -330,15 +370,11 @@
     </footer>
 
     <!-- Product Detail Modal -->
-    <div class="product-modal" id="productModal">
+    <div class="modal-product" id="productModal">
       <div class="modal-content">
         <span class="close-btn" id="closeModal">
           <i class="fa fa-times"></i>
         </span>
-
-        <!-- <div class="modal-img-wrap">
-          <img id="modalImg" src="" alt="" />
-        </div> -->
 
         <img id="modalImg" src="" alt="" />
         <h2 id="modalTitle"></h2>
@@ -362,7 +398,7 @@
       </div>
     </div>
 
-    <!-- //Whatsapp floationg button -->
+    <!-- Floating WhatsApp -->
     <a
       href="https://wa.me/9779700013011"
       class="whatsapp-float"
